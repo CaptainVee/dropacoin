@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'account.apps.AccountConfig',
+    'donate.apps.DonateConfig',
     'crispy_forms',
     'storages',
     'django_quill',

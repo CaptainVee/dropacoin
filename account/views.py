@@ -11,14 +11,7 @@ from django.db.models import Q
 # Create your views here.
 
 
-def welcome(request):
-	'''this function is to redirect from login page to workspace list passing the username 
-	of the logged in user as a parameter'''
-	username = request.user.username
-	if username == '':
-		return render(request, 'account/landingPage.html', {'title': 'dropacoin'})
-	# else:
-	# 	return redirect('dashboard', username)
+
 
 
 def register(request):
@@ -46,7 +39,7 @@ def register(request):
 					email=email,
 					)
 				user.save()
-				user=auth.authenticate(username=username,password=password)
+				user=auth.authenticate(username=username,password=password1)
 				auth.login(request,user)
 				messages.success(request,'User Created')
 				return redirect('landing_page')
@@ -98,3 +91,31 @@ def profile(request):
 def logout_view(request):
     logout(request)
     return redirect('landing_page')
+
+
+
+
+@login_required
+def profile(request):
+	if request.method == 'POST':
+		userForm = UserUpdateForm(request.POST, instance=request.user)
+		profileForm = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+
+		if profileForm.is_valid():
+			userForm.save()
+			profileForm.save()
+			messages.success(request, f'Your Account has been updated!')
+			return redirect('profile')
+
+	else:
+		userForm = UserUpdateForm(instance=request.user)
+		profileForm = ProfileUpdateForm(instance=request.user.profile)
+
+	context = {
+		'userForm': userForm,
+		'profileForm': profileForm,
+	}
+
+	return render(request, 'account/profile.html', context)
+
+

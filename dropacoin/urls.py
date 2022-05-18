@@ -23,8 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     # path('post/', include('post.urls')),
-    # # path('chat/', include('chat.urls')),
-    path('', include('account.urls')),
+    path('', include('donate.urls')),
+    path('account/', include('account.urls')),
 ]
 
 
