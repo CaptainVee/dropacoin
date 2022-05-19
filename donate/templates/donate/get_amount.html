@@ -1,0 +1,11 @@
+ <form action="{% url 'get-amount' user.username %}" method="POST">
+        {% csrf_token %}
+        <h3>AMOUNT</h3>
+
+        <div class="form-group">
+          <label for="inputMessage">Message</label>
+          <input type="text" name="amount" class="form-control" id="inputMessage" placeholder="message">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+ 

@@ -2,8 +2,10 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
 
-class Account(models.Model):
-	user = models.OneToOneField(User, on_delete=models.CASCADE)
+class Transaction(models.Model):
+	user = models.ForeignKey(User, on_delete=models.CASCADE)
+	amount = models.IntegerField(blank=True, null=True)
+	status = models.BooleanField(default=False)
 
 
 

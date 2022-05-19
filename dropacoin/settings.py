@@ -146,6 +146,10 @@ django_heroku.settings(locals())
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# LOGIN_REDIRECT_URL = 'landing_page'
+LOGIN_REDIRECT_URL = 'landing_page'
 
 # LOGIN_URL = 'login'
+
+
+CREDO_SEC_KEY = "sk_demo-WFF1F4WHuU9n6CW8I9rDFimXt1LcRv.UgGQiEdtcK-d"
+CREDO_PUBLIC_KEY = "pk_demo-VSi1ZxB4dBHZSleiKrx2TCW47urc8C.RZCRrpbv5m-d"

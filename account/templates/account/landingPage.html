@@ -1,4 +1,79 @@
-<h1>Dropacoin</h1>
-<h1>Landing Page</h1>
-<a href="{% url 'login' %}">Login</a>
-<a href="{% url 'signup' %}">Signup</a>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'account/main.css' %}">
+    <title>Endocrine</title>
+</head>
+<body>
+    <header>
+        <div class="headerimg">
+            <div class="imgs"><img src="" alt=""></div>
+        </div>
+
+       <ul class="headerbtn">
+           <li>
+           	<a href="{% url 'login' %}">Login</a>
+           </li>
+           <li>
+               <a href="{% url 'signup' %}">Signup</a>
+            
+           </li>
+          
+       </ul>
+    </header>
+    <div class='intro'>
+        <h1 class="h12">Now you can sell without </h1>
+        <h1 class="h11">stressing your followers.</h1>
+        <p>Recieve payments and sell anything you like.</p>
+        <p> It is easier than you think</p>
+    </div>
+    <div class="searchpart">
+        <input type="text" value="dropacoin.com/" >
+        <button>Start My Page</button>
+    </div>
+    <p class="lonep">It is free, and takes less than a minute</p>
+    <div class="people">
+        <div class="peoplebtn">
+            <button class="videoes" onclick="video()">Video Creators</button>
+            <button class="musices" onclick="music()">Musicians</button>
+            <button onclick="video()">Writers</button>
+            <button onclick="video()">Gaming</button>
+            <button onclick="video()">Gaming</button>
+            <button onclick="video()">Podcasters</button>
+            <button onclick="video()">Artist</button>
+            <button onclick="video()">NFT</button>
+        </div>
+        <div class="main">
+
+        </div>
+    </div>
+    <div class="pur">
+        <p class="purchase">Purchase</p>
+        <h1 class="purchaseh1">Give your audience an easier </h1>
+            <h1 class="purchaseh2">way to make purchase</h1>
+            <p class="purchasep1">Now your followers and fans can  pay for the product or service</p>
+
+        <div class="transimg">
+           <div class="trans1"><img src="" alt=""></div> 
+           <div class="trans2"><img src="" alt=""></div> 
+        </div>
+        <div class="message">
+            <p class="messp1">Membership</p>
+            <h1>Monthly Membership for </h1>
+               <h1> your biggest fans.</h1>
+               <p class="messp2">Earn a recurring income by accepting monthly or yearly membership.</p> 
+                <p class="messp2">Share exclusive content, or just give them a way to support your work on an </p>
+                <p class="messp2">ongoing basis.</p>
+                
+                <div class="trans3"><img src="" alt=""></div> 
+                
+        </div>
+    </div>
+    <script src="{% static 'account/index.js' %}"></script>
+</body>
+</html>
