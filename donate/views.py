@@ -78,7 +78,7 @@ def get_amount(request, username):
 			customer_phone='23480123456789',
 			trans_ref=slug+str(transaction.id), 
 			payment_options='CARD,BANK',
-			redirect_url=f"http://localhost:8000/verify_funds/?q={slug}{transaction.id}"
+			redirect_url=f"https://dropacoinn.herokuapp.com/verify_funds/?q={slug}{transaction.id}"
 			)
 
 		if status == 200:
