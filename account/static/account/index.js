@@ -1,26 +1,26 @@
 let thems=[
     {
         name:'Offor Emeka',
-        url: './images/Rectangl.png',
+        url: 'static/images/Rectangl.png',
         des: 'I am a digital comedian ask around',
         likes: '95 Purchases'
     },
     {
         name:'Nnamdi Marko',
-        url:'./images/Rectangle.png',
+        url:'static/images/Rectangle.png',
         des: 'Trumph enjoys my video',
         likes: '105 Purchases'
     },
     {
         name:'Adabi Clinton',
-        url: './images/Rectangls.png',
+        url: 'static/images/Rectangls.png',
         des: 'I make memes video',
         likes: '55 Purchases'
     },
     
     {
         name:'Joseph Daalu',
-        url: './images/Rectanglss.png',
+        url: 'static/images/Rectanglss.png',
         des: 'Joseph Daalu Creating videos to change the world',
         likes: '395 Purchases'
     }, 
@@ -29,25 +29,25 @@ let thems=[
 let photos =[
     {
         name:'photo 1',
-        url: './images/Rectanglss.png',
+        url: '/static/images/Rectanglss.png',
         des: 'I am a digital comedian ask around',
         likes: '95 Purchases'
     },
     {
         name:'photo 2',
-        url:'./images/Rectangle.png',
+        url:'/static/images/Rectangle.png',
         des: 'Trumph enjoys my video',
         likes: '105 Purchases'
     },
     {
         name:'photo 3',
-        url: './images/Rectangl.png',
+        url: '/static/images/Rectangl.png',
         des: 'I make memes video',
         likes: '55 Purchases'
     },
     {
         name:'photo 4',
-        url: './images/Rectangls.png',
+        url: '/static/images/Rectangls.png',
         des: 'Joseph Daalu Creating videos to change the world 395 Purchases',
         likes: '395 Purchases'
     }, 
@@ -58,22 +58,6 @@ let main = document.querySelector('.main')
 let videoes=document.querySelector('videoes')
 let musices=document.querySelector('musices')
 
-
-    
-    /*musices.addEventListener('click', function (){
-        const sit= photos.map((photo, index)=>{
-            return `
-               <div>
-                   <div>
-                       <img src=${photo.url} class="foot" alt="might">
-                   </div>
-                   <h1>${photo.name}</h1>
-                   <h3>${photo.name}</h3>
-               </div>
-            `;
-        });
-        main.innerHTML=sit
-    })*/
  function video(){
     const sit= photos.map((photo)=>{
         return `
@@ -127,3 +111,4 @@ function music(){
      });
      main.innerHTML=sit
  })
+        

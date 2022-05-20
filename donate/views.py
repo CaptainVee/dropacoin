@@ -8,13 +8,24 @@ from django.contrib import messages
 import random
 import string
 from django.http import HttpResponseRedirect
+from django.core import serializers
+
+
 
 def welcome(request):
 	'''this function is to redirect from login page to workspace list passing the username 
 	of the logged in user as a parameter'''
+	top_user = Profile.objects.all()[:5]
 	username = request.user.username
+	top = serializers.serialize("json", Profile.objects.all())
+	context = {
+		'top_user': top_user,
+		"top":top
+
+		# 'donations' : donation
+	}
 	if username == '':
-		return render(request, 'account/landingPage.html', {'title': 'dropacoin'})
+		return render(request, 'account/landingPage.html', context )
 	else:
 		return redirect('dashboard', username)
 
@@ -22,6 +33,7 @@ def welcome(request):
 def dashboard(request, username, *args, **kwargs):
 	user = get_object_or_404(User, username=username)
 	donee_profile = Profile.objects.get(user=user)
+	donation = Donation.objects.filter(donated_to=user).order_by('-donated_at')[:5]
 	if request.method == 'POST':
 		radio_amount = request.POST.get('inlineRadioOptions')
 		custom_amount = request.POST.get('custom')
@@ -48,6 +60,7 @@ def dashboard(request, username, *args, **kwargs):
 	
 	context = {
 		'profile': donee_profile,
+		'donations' : donation
 	}	
 	return render(request, 'donate/dashboard.html', context)
 
@@ -101,7 +114,7 @@ def verify_funds(request, *args, **kwargs):
 	id_ = query[5:]
 	print("vjdjsjskdskdjsd verify")
 	payment = Payment(public_key=settings.CREDO_PUBLIC_KEY, secret_key=settings.CREDO_SEC_KEY)
-	
+
 	status, verify_payment = payment.verify_payment(transaction_reference=query)
 	if status == 200:
 		transaction = get_object_or_404(Transaction, pk=id_)

@@ -14,17 +14,30 @@
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">Profile Info</legend>
           <div class="media-body">
+            {% if profile.introduction %}
             <h4 class="account-heading">{{ profile.introduction }}</h4>
+            {% endif %}
+
             <p class="text-secondary">{{ profile.bio }}</p>
+
           </div>
             </fieldset>
           {% if profile.user == user %}
         <div>
               <a class="btn btn-secondary btn-sm mt-1 mb-1" href="">Update</a>
             </div>
+              <div>
+              <a class="btn btn-primary btn-sm mt-1 mb-1" href="{% url 'get-amount' profile.user.username %}">Fund Account</a>
+            </div>
+            <p class="text-secondary">{{ profile.account_balance }} coins</p>
           {% endif %}
-          <p class="text-secondary">{{ profile.fans.count }}</p>
+          <p class="text-secondary">{{ profile.fans.count }} Fans</p>
         </form>
+      </div>
+      <div>
+        {% for donation in donations %}
+        <p>{{ donation }}</p>
+        {% endfor %}
       </div>
 
           <div class="row">

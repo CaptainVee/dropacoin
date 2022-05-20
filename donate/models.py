@@ -16,8 +16,7 @@ class Donation(models.Model):
 	donated_at = models.DateTimeField(default=timezone.now)
 	donated_to = models.ForeignKey(User, on_delete= models.CASCADE, related_name='creator', blank=True)
 
-
 	def __str__(self):
-		return f'{ self.user.username } Profile'
+		return f'Someone just droped { self.amount } coins'
 
 

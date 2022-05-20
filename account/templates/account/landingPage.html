@@ -3,40 +3,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{% static 'account/main.css' %}">
+    <link rel="stylesheet" href="{% static 'account/main.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <title>Endocrine</title>
 </head>
 <body>
-    <header>
+<div class="container">
+    <div class="header">
         <div class="headerimg">
             <div class="imgs"><img src="" alt=""></div>
+            <h1>Explore Creators</h1>
         </div>
 
        <ul class="headerbtn">
            <li>
-           	<a href="{% url 'login' %}">Login</a>
+               <a href="{% url 'login' %}" class="istbtn" target="__self"> Login</a>
+           
            </li>
            <li>
-               <a href="{% url 'signup' %}">Signup</a>
+               <a href="{% url 'signup' %}" class="zndbtn">Sign Up</a>
             
+
            </li>
           
        </ul>
-    </header>
+    </div>
     <div class='intro'>
-        <h1 class="h12">Now you can sell without </h1>
-        <h1 class="h11">stressing your followers.</h1>
-        <p>Recieve payments and sell anything you like.</p>
-        <p> It is easier than you think</p>
+        <div class="intro1">
+            <h1 class="h12">Now you can sell without stressing </h1>
+            <h1 class="h11"> your followers.</h1>
+            <img src="./images/arrow.jpg" class="arrow" alt="">
+            <p>Recieve payments and sell anything you like.</p>
+            <p class="introp2"> It is easier than you think</p>
+        </div>
+        <div class="intro2"><img src="{% static 'images/TGN.png' %}" alt=""></div>
     </div>
     <div class="searchpart">
         <input type="text" value="dropacoin.com/" >
         <button>Start My Page</button>
     </div>
-    <p class="lonep">It is free, and takes less than a minute</p>
+    
     <div class="people">
         <div class="peoplebtn">
             <button class="videoes" onclick="video()">Video Creators</button>
@@ -52,28 +60,45 @@
 
         </div>
     </div>
+</div>
     <div class="pur">
         <p class="purchase">Purchase</p>
         <h1 class="purchaseh1">Give your audience an easier </h1>
             <h1 class="purchaseh2">way to make purchase</h1>
-            <p class="purchasep1">Now your followers and fans can  pay for the product or service</p>
+            <p class="purchasep1">Now your followers and fans can  pay</p> <p class="purchasep1"> for the product or service</p>
 
         <div class="transimg">
-           <div class="trans1"><img src="" alt=""></div> 
-           <div class="trans2"><img src="" alt=""></div> 
-        </div>
-        <div class="message">
-            <p class="messp1">Membership</p>
-            <h1>Monthly Membership for </h1>
-               <h1> your biggest fans.</h1>
-               <p class="messp2">Earn a recurring income by accepting monthly or yearly membership.</p> 
-                <p class="messp2">Share exclusive content, or just give them a way to support your work on an </p>
-                <p class="messp2">ongoing basis.</p>
-                
-                <div class="trans3"><img src="" alt=""></div> 
-                
+            <img class="trans1img" src="{% static '/images/laugs.png' %}" alt=""><div class="trans1"></div> 
+           <div class="trans2"><img src="{% static '/images/coin.png' %}" alt=""></div> 
+
+           <button class="tansmes">View store</button>
         </div>
     </div>
-    <script src="{% static 'account/index.js' %}"></script>
+        <div class="message">
+            <p class="messp1">How it works</p>
+
+            <div class="mains">
+                <div class="mainschild">
+                    <div class="mainsimg"><img src="{% static '/images/ship.png' %}" alt=""><div class="blueblur ones"><p>Upload your products 
+                        and earn from selling 
+                        them directly from your
+                        social media</p></div></div>
+                    
+                </div>
+                <div class="mainschild">
+                    <div class="mainsimg2"><img src="{% static '/images/money.png' %}" alt=""><div class="blueblur two"><p>Earn dropacoins from 
+                        you fans from various 
+                        social media supporters</p></div></div>   
+                </div>
+                <div class="mainschild">
+                    <div class="mainsimg3"><img src="{% static '/images/atm.png' %}" alt=""><div class="blueblur three"><p>Withdraw your earnings 
+                        to your bank account
+                        instantly.</p></div></div>
+                    
+                </div>
+            </div>
+        </div>
+   
+    <script src="{% static 'account/index.js' %}s"></script>
 </body>
 </html>

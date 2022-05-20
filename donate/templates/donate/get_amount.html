@@ -1,11 +1,18 @@
- <form action="{% url 'get-amount' user.username %}" method="POST">
-        {% csrf_token %}
-        <h3>AMOUNT</h3>
+{% extends "account/base.html" %}
+{% block content %}
+{% load static %}
 
+ <form action="{% url 'get-amount' user.username %}" method="POST">
+ {% csrf_token %}
+<div class="card text-black mb-3" style="max-width: 18rem; background-color: #f2f8fc;">
+  <div class="card-header">AMOUNT</div>
+  <div class="card-body">
         <div class="form-group">
-          <label for="inputMessage">Message</label>
-          <input type="text" name="amount" class="form-control" id="inputMessage" placeholder="message">
+          <label for="inputMessage">Amount</label>
+          <input type="text" name="amount" class="form-control" id="inputMessage" placeholder="1000">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
- 
+  </div>
+</div>
+   </form>
+ {% endblock content %}
