@@ -13,6 +13,13 @@ body{
     margin-top: 0;
     padding-bottom: 90px;
 }
+.form-check-input{
+    width: 4rem;
+    height: 2rem;
+}
+.form-check-label{
+   margin-left: -40px;
+}
 .header{
     background-color: white;
     height: 50px;

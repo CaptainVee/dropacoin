@@ -1,52 +1,56 @@
-
 {% extends "account/base.html" %}
 {% block content %}
 {% load static %}
+<div style="background: #F2F8FC;">
+<div class="card mb-3 container-xl text-center" style="background-color: inherit; max-width: inherit; padding-right: 0px; padding-left: 0px;">
+  <img src="{% static 'images/cover.png' %}" class="card-img-top" alt="...">
+  <div class="card-body" style="margin-top: -12rem;">
 
-<div class="container">
-  <h1>Dashboard</h1>
-      <div class="content-section">
-        <div class="media">
-          <img class="rounded-circle account-img" src="{{ profile.image.url }}">
+    <img class="rounded-circle account-img" src="{% static 'images/default.jpg' %}">
+        
+    <div>
+    <h2 class="card-title">{{ profile.user.username }}</h2>
+    <strong style="color: #015EB2;">
+      {% if profile.user == user %}
+      <p class="card-text" >Total coins: {{ profile.account_balance }}</p>
 
-        </div>
-        <form>
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Profile Info</legend>
-          <div class="media-body">
-            {% if profile.introduction %}
-            <h4 class="account-heading">{{ profile.introduction }}</h4>
-            {% endif %}
+     <div>
+        <a class="btn btn-primary btn-sm " href="{% url 'get-amount' profile.user.username %}">Fund Account</a>
 
-            <p class="text-secondary">{{ profile.bio }}</p>
-
-          </div>
-            </fieldset>
-          {% if profile.user == user %}
-        <div>
               <a class="btn btn-secondary btn-sm mt-1 mb-1" href="">Update</a>
             </div>
-              <div>
-              <a class="btn btn-primary btn-sm mt-1 mb-1" href="{% url 'get-amount' profile.user.username %}">Fund Account</a>
-            </div>
-            <p class="text-secondary">{{ profile.account_balance }} coins</p>
-          {% endif %}
-          <p class="text-secondary">{{ profile.fans.count }} Fans</p>
-        </form>
-      </div>
-      <div>
-        {% for donation in donations %}
-        <p>{{ donation }}</p>
-        {% endfor %}
-      </div>
+      {% endif %}
+      <p class="card-text">{{ profile.fans.count }} Supporters</p>
+    </strong>
+    </div>
+  </div>
 
-          <div class="row">
-            <div class="col-lg">
-                <form action="{% url 'dashboard' profile.user.username %}" method="POST">
+
+
+</div>
+
+<div class="container-md">
+  <div class="row ">
+    <div class="col-8">
+      <div class="card" style="background-color: inherit;">
+        <div class="card-body">
+            {% if profile.introduction %}
+            <h4 class="card-title mb-3">{{ profile.introduction }}</h4>
+            {% endif %}
+            <p class="text-secondary">{{ profile.bio }}</p>
+        </div>
+        </div>
+    </div>
+
+    <div class="col-4">
+      <div class="card" style="background-color: inherit;">
+        <div class="card-body">
+              <form action="{% url 'dashboard' profile.user.username %}" method="POST">
                   {% csrf_token %}
                   <h3>Drop a coin for {{ profile.user.username }}</h3>
+                  <p class="card-text"><small class="text-muted">1 Coin is worth ₦50</small></p>
                   <div class="form-row">
-
+                    <div style="display: flex;">
                     <div class="form-check form-check-inline">
                       <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1">
                       <label class="form-check-label" for="inlineRadio1">1</label>
@@ -62,11 +66,10 @@
                       <label class="form-check-label" for="inlineRadio3">5</label>
                     </div>
 
-                  <div class="form-group">
-                    <label for="inputCustom">Custom</label>
-                    <input type="text" name="custom" class="form-control" id="inputCustom" placeholder="$1000">
+                  <div class="form-group mb-0" style="width: 5rem; margin-left: 2rem;">
+                    <input type="text" name="custom" class="form-control" id="inputCustom" placeholder="₦50">
                   </div>
-
+                  </div>
                   </div>
                   <div class="form-group">
                     <label for="inputMessage">Message</label>
@@ -77,10 +80,23 @@
                     {% endif %}
                   
                 </form>
- 
-            </div>
-          </div>
+        </div>
+        </div>
+    </div>
   </div>
-      
 
+{% for donation in donations %}
+    <div class="col-8">
+      <div class="card" style="background-color: inherit;">
+        <div class="card-body">
+        <p>{{ donation }}</p>
+        <p class="card-text" >{{ donation.message }}</p>
+        
+        </div>
+        </div>
+    </div>
+{% endfor %}
+</div>
+
+</div>
 {% endblock content %}

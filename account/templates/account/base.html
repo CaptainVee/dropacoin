@@ -8,11 +8,28 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="{% static 'account/style.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'account/main.css' %}">
 </head>
+    <div class="header">
+        <div class="headerimg">
+            <a href="{% url 'landing_page' %}"><div class="imgs"><img src="" alt=""></div></a>
+            <h1>Explore Creators</h1>
+        </div>
 
-<h1><a href="{% url 'landing_page' %}">dropacoin</a></h1>
-	<div class="col-md-8">
+       <ul class="headerbtn">
+           <li>
+               <a href="{% url 'login' %}" class="istbtn" target="__self"> Login</a>
+           
+           </li>
+           <li>
+               <a href="{% url 'signup' %}" class="zndbtn">Sign Up</a>
+            
+
+           </li>
+          
+       </ul>
+    </div>
+	<div class="">
 		{% if messages %}
 			{% for message in messages %}
 				<div class="alert alert-{{ message.tags }}">
