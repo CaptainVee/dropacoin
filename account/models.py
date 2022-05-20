@@ -10,7 +10,7 @@ class Profile(models.Model):
 	created_at = models.DateTimeField(default=timezone.now)
 	phone_number = models.IntegerField(blank=True, null=True)
 	fans = models.ManyToManyField(User, related_name='fans', blank=True)
-	account_balance = models.IntegerField(blank=True, null=True)
+	account_balance = models.IntegerField(blank=True, null=True, default=0)
 	pending = models.IntegerField(blank=True, null=True)
 
 
