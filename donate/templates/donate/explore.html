@@ -1,0 +1,41 @@
+{% extends "account/base.html" %}
+{% block content %}
+{% load static %}
+
+
+
+
+ <div class="card mb-3 container-xl text-center" style="background-color: #F9FDFF; max-width: inherit; padding-right: 0px; padding-left: 0px;">
+  <div class="card-body" style="">        
+    <div class="mb-5">
+ 		<a href="{% url 'explore' %}"><h1>Creators</h1></a>
+ 		<form action="{% url 'explore' %}" method="get">
+  <input name="q" type="text" placeholder="Search..." class="rounded-pill form-control form-control-lg" style="max-width: 59rem; margin-left: 10rem;">
+</form>
+   
+    </div>
+  </div>
+
+
+
+<div class="container">
+<div class="row row-cols-1 row-cols-md-4"style="background-color: #F9FDFF;">
+	{% for person in people %}
+  <div class="col mb-4">
+    <div class="card" >
+      <img src="{% static 'images/Rectangle.png' %}" class="card-img-top" alt="...">
+      <div class="card-body" >
+        <a style="color: black" href="{% url 'dashboard' person.user.username %}"><h5 class="card-title">{{ person.user.first_name }} {{ person.user.last_name }}</h5></a>
+        <p class="card-text">{{ person.introduction }}</p>
+        <div style="display: flex;">
+        <strong><p class="card-text">{{person.fans.count }} Followers</p></strong>
+        <button type="button" class="btn btn-primary btn-sm ml-5">follow</button>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+</div>
+</div>
+</div>
+{% endblock content %}

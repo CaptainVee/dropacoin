@@ -9,8 +9,9 @@ import random
 import string
 from django.http import HttpResponseRedirect
 from django.core import serializers
-
-
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, View
+from django.db.models import Q
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 def welcome(request):
 	'''this function is to redirect from login page to workspace list passing the username 
@@ -75,6 +76,9 @@ def get_amount(request, username):
 
 	if request.method == 'POST':
 		amount = request.POST.get('amount')
+		if int(amount) < 1000:
+			messages.warning(request,'Sorry you cannot fund your account with less than 1000')
+			return redirect('get-amount', username)
 		customer_name = f"{user.first_name} {user.last_name}"
 		slug = random_char()
 
@@ -134,3 +138,45 @@ def verify_funds(request, *args, **kwargs):
 
 
 
+class ExploreView(ListView):
+	model = Profile
+	template_name = 'donate/explore.html'
+	context_object_name = 'people'
+	paginate_by = 16
+
+	def get_queryset(self):
+
+		query = self.request.GET.get("q")
+		if query:
+			people = Profile.objects.filter(
+				Q(user__first_name__icontains=query) | Q(user__last_name__icontains=query)
+				)
+			return people
+
+		return Profile.objects.all().order_by('-account_balance')
+
+# class DashboardUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+# 	model = Profile
+# 	fields = ['title', 'description', 'image']
+
+# 	def form_valid(self, form):
+# 		form.instance.head = self.request.user
+# 		return super().form_valid(form)
+
+# 	def test_func(self):
+# 		post = self.get_object()
+# 		user = self.request.user
+# 		if user == post.head:
+# 			return True
+# 		return False
+
+# class WorkspaceDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+# 	model = Workspace
+# 	success_url = '/'
+
+# 	def test_func(self):
+# 		post = self.get_object()
+# 		user = self.request.user
+# 		if user == post.head:
+# 			return True
+# 		return False

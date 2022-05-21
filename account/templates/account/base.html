@@ -13,20 +13,24 @@
     <div class="header">
         <div class="headerimg">
             <a href="{% url 'landing_page' %}"><div class="imgs"><img src="" alt=""></div></a>
-            <h1>Explore Creators</h1>
+            <a href="{% url 'explore' %}"><h1>Explore Creators</h1></a>
         </div>
 
        <ul class="headerbtn">
+          {% if user.is_authenticated %}
+           <li>
+               <a href="{% url 'logout' %}" class="istbtn">logout</a>
+           </li>
+           {% else %}
+          
            <li>
                <a href="{% url 'login' %}" class="istbtn" target="__self"> Login</a>
            
            </li>
            <li>
                <a href="{% url 'signup' %}" class="zndbtn">Sign Up</a>
-            
-
            </li>
-          
+          {% endif %}
        </ul>
     </div>
 	<div class="">

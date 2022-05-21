@@ -1,0 +1,25 @@
+{% extends "account/base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+<div class="ggg">
+<div class="card nn" style="padding: 6rem 12rem 0rem 12rem;">
+  <img src="{% static 'images/default.jpg' %}" class="rounded-circle card-img-top sm" style="max-width: 15rem;" alt="...">
+  <div class="card-body">
+    <p class="card-text">{{ user.username }}</p>
+    <p class="text-secondary">{{ user.email }}</p>
+          <form method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <fieldset class="form-group">
+              <legend class="border-bottom mb-4">Profile Info</legend>
+                {{ userForm|crispy }}
+                {{ profileForm|crispy }}
+
+          <div class="form-group">
+              <button class="btn btn-outline-info" type="submit">Update</button>
+          </div>
+      </form>
+  </div>
+</div>
+</div>
+{% endblock content %}
