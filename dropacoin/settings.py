@@ -149,8 +149,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = 'landing_page'
 
-# LOGIN_URL = 'login'
+LOGIN_URL = 'login'
 
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
 
-CREDO_SEC_KEY = "sk_demo-WFF1F4WHuU9n6CW8I9rDFimXt1LcRv.UgGQiEdtcK-d"
-CREDO_PUBLIC_KEY = "pk_demo-VSi1ZxB4dBHZSleiKrx2TCW47urc8C.RZCRrpbv5m-d"
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+CREDO_SEC_KEY = os.environ.get('CREDO_SEC_KEY')
+CREDO_PUBLIC_KEY = os.environ.get('CREDO_PUBLIC_KEY')
