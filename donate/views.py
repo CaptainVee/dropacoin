@@ -45,7 +45,7 @@ def dashboard(request, username, *args, **kwargs):
 		elif radio_amount:
 			amount = int(radio_amount)
 
-		if amount >=1 and donor.profile.account_balance >= amount:
+		if amount >=10 and donor.profile.account_balance >= amount:
 			Donation.objects.create(
 				user=donor,
 				message=message,

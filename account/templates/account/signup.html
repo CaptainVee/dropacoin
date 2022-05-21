@@ -8,25 +8,26 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="{% static 'account/style.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'account/main.css' %}">
 </head>
 <body>
     <div class="container">
-                  <h1><a href="{% url 'landing_page' %}">dropAcoin</a></h1>
-
+      <a href="{% url 'landing_page' %}">
+        <div>
+        <img style="margin-top: 2rem" class="imgs" src="{% static 'images/Frame.png' %}">
+        <h3>Dropacoin</h3>
+        </div>
+      </a>
         <div class="row">
+            <div class="col-md">
+              <img style="width: 32rem;" class="sm" src="/static/images/sign-up-illustration.png" alt="illustration">
+            </div>
           <div class="col-lg">
             <form action="{% url 'signup' %}" method="POST">
               {% csrf_token %}
               <h2>Sign Up</h2>
-              <div class="form-group">
-                <label for="exampleInputName1">First Name</label>
-                <input name="first_name" type="text" class="form-control" id="exampleInputName1" placeholder="John" required>
-              </div>
-              <div class="form-group">
-                <label for="exampleInputName1">Last Name</label>
-                <input name="last_name" type="text" class="form-control" id="exampleInputName1" placeholder="Doe" required>
-              </div>
+
+  
               <div class="form-group">
                 <label for="exampleInputName1">Username</label>
                 <input name="username" type="text" class="form-control" id="exampleInputName1" placeholder="be creative :)" required>
@@ -39,21 +40,11 @@
                 <label for="exampleInputPassword1">Password</label>
                 <input name="password1" type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter 8 characters or more" required>
               </div>
-              <div class="form-group">
-                <label for="exampleInputPassword1">Confirm Password</label>
-                <input name="password2" type="password" class="form-control" id="exampleInputPassword1" placeholder="Re-enter your password" required>
-              </div>
-              <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Remember me</label>
-              </div>
-              <button type="submit" class="btn btn-custom1 btn-primary">Sign Up</button>
+              <button type="submit" class="btn btn-custom1 btn-primary btn-block">Sign Up</button>
               <span>Have an account already? <a href="{% url 'login' %}" class="forgot-password">  Log In</</a></span>
             </form>
           </div>
-          <div class="col-md">
-            <img class="sign-up-image" src="/static/images/sign-up-illustration.png" alt="illustration">
-          </div>
+
         </div>
       </div>
       

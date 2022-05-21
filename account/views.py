@@ -16,36 +16,36 @@ from django.db.models import Q
 
 def register(request):
 	if request.method == 'POST':
-		first_name=request.POST['first_name']
-		last_name=request.POST['last_name']
+		# first_name=request.POST['first_name']
+		# last_name=request.POST['last_name']
 		username=request.POST['username']
 		email=request.POST['email']
 		password1=request.POST['password1']
-		password2=request.POST['password2']
+		# password2=request.POST['password2']
 
-		if password1 == password2:
-			if (User.objects.filter(username=username).exists()):
-				messages.warning(request,'User Name Already Exists')
-				return redirect('signup')
-			elif (User.objects.filter(email=email).exists()):
-				messages.warning(request,'Email Already Exists')
-				return redirect('signup')
-			else:
-				user=User.objects.create_user(
-					password=password1,  
-					username=username, 
-					first_name=first_name, 
-					last_name=last_name, 
-					email=email,
-					)
-				user.save()
-				user=auth.authenticate(username=username,password=password1)
-				auth.login(request,user)
-				messages.success(request,'User Created')
-				return redirect('landing_page')
+		# if password1 == password2:
+		if (User.objects.filter(username=username).exists()):
+			messages.warning(request,'User Name Already Exists')
+			return redirect('signup')
+		elif (User.objects.filter(email=email).exists()):
+			messages.warning(request,'Email Already Exists')
+			return redirect('signup')
 		else:
-			messages.warning(request,'User Password MisMatching')
-			return render(request, 'account/signup.html')
+			user=User.objects.create_user(
+				password=password1,  
+				username=username, 
+				# first_name=first_name, 
+				# last_name=last_name, 
+				email=email,
+				)
+			user.save()
+			user=auth.authenticate(username=username,password=password1)
+			auth.login(request,user)
+			messages.success(request,'User Created, Please complete your profile')
+			return redirect('profile')
+		# else:
+		# 	messages.warning(request,'User Password MisMatching')
+		# 	return render(request, 'account/signup.html')
 	else:
 		return render(request, 'account/signup.html') 
 

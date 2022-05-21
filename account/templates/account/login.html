@@ -11,43 +11,36 @@
   <title>Login</title>
 </head>
 <body>
-     <header>
-       <div class="headimg">
-           <a href="{% url 'landing_page' %}"><div class="imgs"><img src="" alt=""></div></a>
-       </div>
-       <div class="headerbtn">
-           <p>Already have an account?</p>
-           <a href="" class="zndbtn">Login</a>
-       </div>
-    </header>
+
   <div class="container">
+         <a href="{% url 'landing_page' %}"><div>
+        <img style="margin-top: 2rem; margin-left: 2rem" class="imgs" src="{% static 'images/Frame.png' %}">
+        <h3>Dropacoin</h3>
+    </div></a>
     <div class="row">
+        <div class="col-md">
+        <img style="width: 32rem;" class="sm" src="/static/images/login-illustration.png" alt="illustration">
+        </div>
       <div class="col-sm">
         <form action="{% url 'login' %}" method="POST">
           {% csrf_token %}
           <h2>Login</h2>
           <div class="form-group">
             <label for="exampleInputEmail1">Email address or Username</label>
-            <input name="username" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="you@example.com or you123" required>
+            <input name="username" type="text" class="form-control rounded-pill" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="you@example.com or you123" required>
 
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
-            <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter 8 characters or more" required>
+            <input name="password" type="password" class="form-control rounded-pill" id="exampleInputPassword1" placeholder="Enter 8 characters or more" required>
             <small id="emailHelp" class="forgot-password form-text text-muted ">Forgot Password</small>
           </div>
-          <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Remember me</label>
-          </div>
-          <button type="submit" class="btn btn-primary btn-custom1">Login</button>
+          <button type="submit" class="btn btn-primary btn-custom1 btn-block">Login</button>
           <br>
           <span>Don't have an account yet?<a href="{% url 'signup' %}" class="forgot-password">Sign Up</a></span>
         </form>
       </div>
-      <div class="col-md">
-  <!--       <img src="/static/images/login-illustration.png" alt="illustration"> -->
-      </div>
+
     </div>
   </div>
     

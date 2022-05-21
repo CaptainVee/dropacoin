@@ -22,8 +22,8 @@ body{
 }
 .header{
     background-color: white;
-    height: 50px;
-    width: 70%;
+    height: 90px;
+    width: 80%;
     border-radius: 50px;
     display: flex;
     align-items: center;
@@ -36,7 +36,7 @@ body{
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 600;
-    font-size: 15px;
+    font-size: 25px;
     line-height: 37px;
     /* identical to box height */
 
@@ -44,14 +44,22 @@ body{
     color: #015EB2;
 }
 .imgs{
-    background-color: 
+   background-color: 
     rgb(54, 47, 47);
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
     border-radius: 30px;
     margin-left: 20px;
     margin-right: 20px;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 
+}
+.imgs img{
+    width: 30px;
+    height: 30px;
 }
 .headerimg{
     display: flex;
@@ -60,7 +68,7 @@ body{
 }
 
 .headerbtn{
-    width: 140px;
+    width: 200px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -77,11 +85,11 @@ body{
 .istbtn{
 font-family: 'Nexa Text-Trial';
 font-style: normal;
-font-weight: 400;
-font-size: 14px;
+font-weight: 600;
+font-size: 20px;
 background-color: white;
 border: none;
-color: #292929;
+color: #015EB2;
 }
 .zndbtn{
     margin-right: 12px;
@@ -94,8 +102,7 @@ color: #292929;
     border: none;
     border-radius: 20px;
     color: white;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-right: 4px 12px;
 }
 .intro{
     display: flex;
@@ -510,6 +517,11 @@ color: #292929;
     z-index: 1;
 }
 
+.dropdown-menu{
+    top: -2px !important;
+    left: -30px !important;
+}
+
 
 @media screen and (max-width: 600px) {
   .col-25, .col-75, input[type=submit] {
@@ -520,6 +532,6 @@ color: #292929;
     padding: 0 !important;
   }
   .sm{
-    width: 15rem;
+    width: 15rem !important;
   }
 }

@@ -1,35 +1,38 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="margin-left: -17px;">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'account/main.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <title>Endocrine</title>
+    <title>Dropacoin</title>
 </head>
 <body>
 <div class="container">
-    <div class="header">
-        <div class="headerimg">
-            <div class="imgs"><img src="" alt=""></div>
-            <h1>Explore Creators</h1>
-        </div>
-
-       <ul class="headerbtn">
-           <li>
-               <a href="{% url 'login' %}" class="istbtn" target="__self"> Login</a>
-           
-           </li>
-           <li>
-               <a href="{% url 'signup' %}" class="zndbtn">Sign Up</a>
-            
-
-           </li>
-          
-       </ul>
-    </div>
+        <header>
+            <div class="header">
+                <div class="headerimg">
+                    <img class="imgs" src="{% static 'images/Frame.png' %}">
+                    <a style="text-decoration: none;" href="{% url 'explore' %}"><h1 >Explore Creators</h1></a>
+                </div>
+        
+        
+               <ul class="headerbtn">
+                   <li>
+                       <a href="{% url 'login' %}" class="istbtn" target="__self"> Login</a>
+                   
+                   </li>
+                   <li>
+                       <a href="{% url 'signup' %}" class="zndbtn">Sign Up</a>
+                    
+        
+                   </li>
+                  
+               </ul>
+            </div>
+        </header>
     <div class='intro'>
         <div class="intro1">
             <h1 class="h12">Now you can sell without stressing </h1>
