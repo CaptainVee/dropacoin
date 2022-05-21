@@ -155,28 +155,3 @@ class ExploreView(ListView):
 
 		return Profile.objects.all().order_by('-account_balance')
 
-# class DashboardUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
-# 	model = Profile
-# 	fields = ['title', 'description', 'image']
-
-# 	def form_valid(self, form):
-# 		form.instance.head = self.request.user
-# 		return super().form_valid(form)
-
-# 	def test_func(self):
-# 		post = self.get_object()
-# 		user = self.request.user
-# 		if user == post.head:
-# 			return True
-# 		return False
-
-# class WorkspaceDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
-# 	model = Workspace
-# 	success_url = '/'
-
-# 	def test_func(self):
-# 		post = self.get_object()
-# 		user = self.request.user
-# 		if user == post.head:
-# 			return True
-# 		return False
