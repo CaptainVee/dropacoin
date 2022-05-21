@@ -1,5 +1,6 @@
 asgiref==3.4.1
 django-storages[boto3]==1.12.3
+boto3
 certifi==2018.10.15
 chardet==3.0.4
 credo-python==1.0.1
