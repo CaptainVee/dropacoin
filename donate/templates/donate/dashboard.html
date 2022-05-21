@@ -7,7 +7,7 @@
   <img style="margin-top: -2rem" src="{% static 'images/cover.png' %}" class="card-img-top" alt="...">
   <div class="card-body" style="margin-top: -12rem;">
 
-    <img class="rounded-circle sm" src="{% static 'images/default.jpg' %}">
+    <img class="rounded-circle sm" src="{{ profile.image.url }}">
         
     <div>
     <h2 class="card-title">{{ profile.user.username }}</h2>
